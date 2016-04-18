@@ -1,0 +1,22 @@
+{
+    "name": "next-sentence/afterbuy-sdk",
+    "description": "The AfterbuySDK provides to interact with the Afterbuy XML API",
+    "keywords":     ["afterbuy"],
+    "homepage": "http://github.com/next-sentence/afterbuy-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Petru Binzari",
+            "email": "pekya1@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "jms/serializer": "^1.1",
+        "monolog/monolog": "~1.12"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "Ns\\Afterbuy\\": "src/" }
+    }
+}

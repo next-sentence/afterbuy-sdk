@@ -5,6 +5,7 @@ namespace Ns\Afterbuy\Model\GetSoldItems;
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractModel;
 use \DateTime;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class SoldItem
@@ -29,7 +30,7 @@ class SoldItem extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("Anr")
-     * @var float
+     * @var FloatType
      */
     protected $anr;
 
@@ -85,7 +86,7 @@ class SoldItem extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ItemPrice")
-     * @var float
+     * @var FloatType
      */
     protected $itemPrice;
 
@@ -99,14 +100,14 @@ class SoldItem extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("TaxRate")
-     * @var float
+     * @var FloatType
      */
     protected $taxRate;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ItemWeight")
-     * @var float
+     * @var FloatType
      */
     protected $itemWeight;
 
@@ -221,7 +222,7 @@ class SoldItem extends AbstractModel
      */
     public function getAnr()
     {
-        return $this->anr;
+        return $this->anr->getValue();
     }
 
     /**
@@ -285,7 +286,7 @@ class SoldItem extends AbstractModel
      */
     public function getItemPrice()
     {
-        return $this->itemPrice;
+        return $this->itemPrice->getValue();
     }
 
     /**
@@ -301,7 +302,7 @@ class SoldItem extends AbstractModel
      */
     public function getTaxRate()
     {
-        return $this->taxRate;
+        return $this->taxRate->getValue();
     }
 
     /**
@@ -309,7 +310,7 @@ class SoldItem extends AbstractModel
      */
     public function getItemWeight()
     {
-        return $this->itemWeight;
+        return $this->itemWeight->getValue();
     }
 
     /**

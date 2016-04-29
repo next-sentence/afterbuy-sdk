@@ -5,6 +5,7 @@ namespace Ns\Afterbuy\Model\GetPaymentServices;
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractModel;
 use \DateTime;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class PaymentService
@@ -49,28 +50,28 @@ class PaymentService extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("Surcharge")
-     * @var float
+     * @var FloatType
      */
     protected $surcharge;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("SurchargePercent")
-     * @var float
+     * @var FloatType
      */
     protected $surchargePercent;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("MinAmount")
-     * @var float
+     * @var FloatType
      */
     protected $minAmount;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("MaxAmount")
-     * @var float
+     * @var FloatType
      */
     protected $maxAmount;
 
@@ -161,7 +162,7 @@ class PaymentService extends AbstractModel
      */
     public function getSurcharge()
     {
-        return $this->surcharge;
+        return $this->surcharge->getValue();
     }
 
     /**
@@ -169,7 +170,7 @@ class PaymentService extends AbstractModel
      */
     public function getSurchargePercent()
     {
-        return $this->surchargePercent;
+        return $this->surchargePercent->getValue();
     }
 
     /**
@@ -177,7 +178,7 @@ class PaymentService extends AbstractModel
      */
     public function getMinAmount()
     {
-        return $this->minAmount;
+        return $this->minAmount->getValue();
     }
 
     /**
@@ -185,7 +186,7 @@ class PaymentService extends AbstractModel
      */
     public function getMaxAmount()
     {
-        return $this->maxAmount;
+        return $this->maxAmount->getValue();
     }
 
     /**

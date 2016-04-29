@@ -3,6 +3,7 @@
 namespace Ns\Afterbuy\Model\GetShopProducts;
 
 use JMS\Serializer\Annotation as Serializer;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class ScaledDiscount
@@ -20,14 +21,14 @@ class ScaledDiscount
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ScaledPrice")
-     * @var float
+     * @var FloatType
      */
     protected $scaledPrice;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ScaledDPrice")
-     * @var float
+     * @var FloatType
      */
     protected $scaledDPrice;
 
@@ -44,7 +45,7 @@ class ScaledDiscount
      */
     public function getScaledPrice()
     {
-        return $this->scaledPrice;
+        return $this->scaledPrice->getValue();
     }
 
     /**
@@ -52,6 +53,7 @@ class ScaledDiscount
      */
     public function getScaledDPrice()
     {
-        return $this->scaledDPrice;
+        return $this->scaledDPrice->getValue()
+            ;
     }
 }

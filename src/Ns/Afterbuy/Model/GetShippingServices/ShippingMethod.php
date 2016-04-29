@@ -4,6 +4,7 @@ namespace Ns\Afterbuy\Model\GetShippingServices;
 
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractModel;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class ShippingMethod
@@ -49,7 +50,7 @@ class ShippingMethod extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("TaxRate")
-     * @var float
+     * @var FloatType
      */
     protected $taxRate;
 
@@ -63,35 +64,35 @@ class ShippingMethod extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("PriceFrom")
-     * @var float
+     * @var FloatType
      */
     protected $priceFrom;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("PriceTo")
-     * @var float
+     * @var FloatType
      */
     protected $priceTo;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("IslandAdditionalCosts")
-     * @var float
+     * @var FloatType
      */
     protected $islandAdditionalCosts;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("FreeShippingPriceFrom")
-     * @var float
+     * @var FloatType
      */
     protected $freeShippingPriceFrom;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("AdditionalItemCosts")
-     * @var float
+     * @var FloatType
      */
     protected $additionalItemCosts;
 
@@ -139,7 +140,7 @@ class ShippingMethod extends AbstractModel
      */
     public function getTaxRate()
     {
-        return $this->taxRate;
+        return $this->taxRate->getValue();
     }
 
     /**
@@ -147,7 +148,7 @@ class ShippingMethod extends AbstractModel
      */
     public function getPriceFrom()
     {
-        return $this->priceFrom;
+        return $this->priceFrom->getValue();
     }
 
     /**
@@ -155,7 +156,7 @@ class ShippingMethod extends AbstractModel
      */
     public function getPriceTo()
     {
-        return $this->priceTo;
+        return $this->priceTo->getValue();
     }
 
     /**
@@ -163,7 +164,7 @@ class ShippingMethod extends AbstractModel
      */
     public function getIslandAdditionalCosts()
     {
-        return $this->islandAdditionalCosts;
+        return $this->islandAdditionalCosts->getValue();
     }
 
     /**
@@ -171,7 +172,7 @@ class ShippingMethod extends AbstractModel
      */
     public function getFreeShippingPriceFrom()
     {
-        return $this->freeShippingPriceFrom;
+        return $this->freeShippingPriceFrom->getValue();
     }
 
     /**
@@ -203,6 +204,6 @@ class ShippingMethod extends AbstractModel
      */
     public function getAdditionalItemCosts()
     {
-        return $this->additionalItemCosts;
+        return $this->additionalItemCosts->getValue();
     }
 }

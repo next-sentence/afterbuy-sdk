@@ -32,4 +32,28 @@ class Result extends BaseResult
      */
     protected $catalogs;
 
+    /**
+     * @return boolean
+     */
+    public function hasMoreCatalogs()
+    {
+        return $this->hasMoreCatalogs;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLastCatalogID()
+    {
+        return $this->lastCatalogID;
+    }
+
+    /**
+     * @return Catalog[]
+     */
+    public function getCatalogs()
+    {
+        return $this->catalogs;
+    }
+
 }

@@ -5,6 +5,7 @@ namespace Ns\Afterbuy\Model\UpdateSoldItems;
 use JMS\Serializer\Annotation as Serializer;
 use \DateTime;
 use Ns\Afterbuy\Model\AbstractShippingInfo;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class ShippingInfo
@@ -21,7 +22,7 @@ class ShippingInfo extends AbstractShippingInfo
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("eBayShippingCost")
-     * @var float
+     * @var FloatType
      */
     protected $eBayShippingCost;
 
@@ -88,7 +89,7 @@ class ShippingInfo extends AbstractShippingInfo
      */
     public function setShippingCost($shippingCost)
     {
-        $this->shippingCost = $shippingCost;
+        $this->shippingCost = new FloatType($shippingCost);
 
         return $this;
     }
@@ -110,7 +111,7 @@ class ShippingInfo extends AbstractShippingInfo
      */
     public function getEBayShippingCost()
     {
-        return $this->eBayShippingCost;
+        return $this->eBayShippingCost->getValue();
     }
 
     /**
@@ -120,7 +121,7 @@ class ShippingInfo extends AbstractShippingInfo
      */
     public function setEBayShippingCost($eBayShippingCost)
     {
-        $this->eBayShippingCost = $eBayShippingCost;
+        $this->eBayShippingCost = new FloatType($eBayShippingCost);
 
         return $this;
     }

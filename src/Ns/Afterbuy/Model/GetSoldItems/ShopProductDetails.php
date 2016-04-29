@@ -4,6 +4,7 @@ namespace Ns\Afterbuy\Model\GetSoldItems;
 
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractModel;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class ShopProductDetails
@@ -27,7 +28,7 @@ class ShopProductDetails extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("Anr")
-     * @var float
+     * @var FloatType
      */
     protected $anr;
 
@@ -41,7 +42,7 @@ class ShopProductDetails extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("BasepriceFactor")
-     * @var float
+     * @var FloatType
      */
     protected $basepriceFactor;
 
@@ -73,7 +74,7 @@ class ShopProductDetails extends AbstractModel
      */
     public function getAnr()
     {
-        return $this->anr;
+        return $this->anr->getValue();
     }
 
     /**
@@ -89,7 +90,7 @@ class ShopProductDetails extends AbstractModel
      */
     public function getBasepriceFactor()
     {
-        return $this->basepriceFactor;
+        return $this->basepriceFactor->getValue();
     }
 
     /**

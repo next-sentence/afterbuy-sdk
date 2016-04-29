@@ -4,6 +4,7 @@ namespace Ns\Afterbuy\Model\GetSoldItems;
 
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractShippingInfo;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class ShippingInfo
@@ -13,21 +14,21 @@ class ShippingInfo extends AbstractShippingInfo
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ShippingAdditionalCost")
-     * @var float
+     * @var FloatType
      */
     protected $shippingAdditionalCost;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ShippingTotalCost")
-     * @var float
+     * @var FloatType
      */
     protected $shippingTotalCost;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ShippingTaxRate")
-     * @var float
+     * @var FloatType
      */
     protected $shippingTaxRate;
 
@@ -36,7 +37,7 @@ class ShippingInfo extends AbstractShippingInfo
      */
     public function getShippingAdditionalCost()
     {
-        return $this->shippingAdditionalCost;
+        return $this->shippingAdditionalCost->getValue();
     }
 
     /**
@@ -44,7 +45,7 @@ class ShippingInfo extends AbstractShippingInfo
      */
     public function getShippingTotalCost()
     {
-        return $this->shippingTotalCost;
+        return $this->shippingTotalCost->getValue();
     }
 
     /**
@@ -52,6 +53,6 @@ class ShippingInfo extends AbstractShippingInfo
      */
     public function getShippingTaxRate()
     {
-        return $this->shippingTaxRate;
+        return $this->shippingTaxRate->getValue();
     }
 }

@@ -11,15 +11,11 @@ use JMS\Serializer\Annotation\XmlRoot;
  */
 class FloatType
 {
-//    /**
-//     * @Type("float")
-//     * @XmlValue
-//     */
     private $value;
 
     public function __construct($value)
     {
-        $this->value = $value;
+        $this->value = (float) $value;
     }
 
     public function getValue()

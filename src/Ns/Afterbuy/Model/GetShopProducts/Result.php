@@ -42,7 +42,7 @@ class Result extends BaseResult
     /**
      * @return boolean
      */
-    public function isHasMoreProducts()
+    public function hasMoreProducts()
     {
         return $this->getBooleanAsInteger($this->hasMoreProducts);
     }

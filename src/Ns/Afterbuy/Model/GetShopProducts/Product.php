@@ -4,6 +4,7 @@ namespace Ns\Afterbuy\Model\GetShopProducts;
 
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractModel;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class Product
@@ -27,7 +28,7 @@ class Product extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("Anr")
-     * @var float
+     * @var FloatType
      */
     protected $anr;
 
@@ -161,7 +162,7 @@ class Product extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("UnitOfQuantity")
-     * @var float
+     * @var FloatType
      */
     protected $unitOfQuantity;
 
@@ -203,21 +204,21 @@ class Product extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("SellingPrice")
-     * @var float
+     * @var FloatType
      */
     protected $sellingPrice;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("BuyingPrice")
-     * @var float
+     * @var FloatType
      */
     protected $buyingPrice;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("DealerPrice")
-     * @var float
+     * @var FloatType
      */
     protected $dealerPrice;
 
@@ -253,14 +254,14 @@ class Product extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("TaxRate")
-     * @var float
+     * @var FloatType
      */
     protected $taxRate;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("Weight")
-     * @var float
+     * @var FloatType
      */
     protected $weight;
 
@@ -633,7 +634,7 @@ class Product extends AbstractModel
      */
     public function getAnr()
     {
-        return $this->anr;
+        return $this->anr->getValue();
     }
 
     /**
@@ -785,7 +786,7 @@ class Product extends AbstractModel
      */
     public function getUnitOfQuantity()
     {
-        return $this->unitOfQuantity;
+        return $this->unitOfQuantity->getValue();
     }
 
     /**
@@ -833,7 +834,7 @@ class Product extends AbstractModel
      */
     public function getSellingPrice()
     {
-        return $this->sellingPrice;
+        return $this->sellingPrice->getValue();
     }
 
     /**
@@ -841,7 +842,7 @@ class Product extends AbstractModel
      */
     public function getBuyingPrice()
     {
-        return $this->buyingPrice;
+        return $this->buyingPrice->getValue();
     }
 
     /**
@@ -849,7 +850,7 @@ class Product extends AbstractModel
      */
     public function getDealerPrice()
     {
-        return $this->dealerPrice;
+        return $this->dealerPrice->getValue();
     }
 
     /**
@@ -889,7 +890,7 @@ class Product extends AbstractModel
      */
     public function getTaxRate()
     {
-        return $this->taxRate;
+        return $this->taxRate->getValue();
     }
 
     /**
@@ -897,7 +898,7 @@ class Product extends AbstractModel
      */
     public function getWeight()
     {
-        return $this->weight;
+        return $this->weight->getValue();
     }
 
     /**

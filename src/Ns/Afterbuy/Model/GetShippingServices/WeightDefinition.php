@@ -4,6 +4,7 @@ namespace Ns\Afterbuy\Model\GetShippingServices;
 
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractModel;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class WeightDefinition
@@ -13,21 +14,21 @@ class WeightDefinition extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("WeightFrom")
-     * @var float
+     * @var FloatType
      */
     protected $weightFrom;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("WeightTo")
-     * @var float
+     * @var FloatType
      */
     protected $weightTo;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("Price")
-     * @var float
+     * @var FloatType
      */
     protected $price;
 
@@ -36,7 +37,7 @@ class WeightDefinition extends AbstractModel
      */
     public function getWeightFrom()
     {
-        return $this->weightFrom;
+        return $this->weightFrom->getValue();
     }
 
     /**
@@ -44,7 +45,7 @@ class WeightDefinition extends AbstractModel
      */
     public function getWeightTo()
     {
-        return $this->weightTo;
+        return $this->weightTo->getValue();
     }
 
     /**
@@ -52,6 +53,6 @@ class WeightDefinition extends AbstractModel
      */
     public function getPrice()
     {
-        return $this->price;
+        return $this->price->getValue();
     }
 }

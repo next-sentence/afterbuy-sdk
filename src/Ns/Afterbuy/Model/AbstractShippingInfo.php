@@ -20,7 +20,7 @@ abstract class AbstractShippingInfo extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ShippingCost")
-     * @var float
+     * @var FloatType
      */
     protected $shippingCost;
 
@@ -44,7 +44,7 @@ abstract class AbstractShippingInfo extends AbstractModel
      */
     public function getShippingCost()
     {
-        return $this->shippingCost;
+        return $this->shippingCost->getValue();
     }
 
     /**

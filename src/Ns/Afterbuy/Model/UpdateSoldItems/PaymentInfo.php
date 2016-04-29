@@ -5,6 +5,7 @@ namespace Ns\Afterbuy\Model\UpdateSoldItems;
 use JMS\Serializer\Annotation as Serializer;
 use \DateTime;
 use Ns\Afterbuy\Model\AbstractPaymentInfo;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class PaymentInfo
@@ -12,9 +13,9 @@ use Ns\Afterbuy\Model\AbstractPaymentInfo;
 class PaymentInfo extends AbstractPaymentInfo
 {
     /**
-     * @Serializer\Type("Ns\Afterbuy\Serializer\Float")
+     * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("PaymentAadditionalCost")
-     * @var Float
+     * @var FloatType
      */
     protected $paymentAdditionalCost;
 
@@ -83,7 +84,7 @@ class PaymentInfo extends AbstractPaymentInfo
      */
     public function getPaymentAdditionalCost()
     {
-        return $this->paymentAdditionalCost;
+        return $this->paymentAdditionalCost->getValue();
     }
 
     /**
@@ -93,7 +94,7 @@ class PaymentInfo extends AbstractPaymentInfo
      */
     public function setPaymentAdditionalCost($paymentAdditionalCost)
     {
-        $this->paymentAdditionalCost = $paymentAdditionalCost;
+        $this->paymentAdditionalCost = new FloatType($paymentAdditionalCost);
 
         return $this;
     }

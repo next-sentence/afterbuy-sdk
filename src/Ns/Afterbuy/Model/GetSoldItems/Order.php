@@ -5,6 +5,7 @@ namespace Ns\Afterbuy\Model\GetSoldItems;
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractOrder;
 use \DateTime;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class Order
@@ -28,7 +29,7 @@ class Order extends AbstractOrder
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("Anr")
-     * @var float
+     * @var FloatType
      */
     protected $anr;
 
@@ -131,7 +132,7 @@ class Order extends AbstractOrder
      */
     public function getAnr()
     {
-        return $this->anr;
+        return $this->anr->getValue();
     }
 
     /**

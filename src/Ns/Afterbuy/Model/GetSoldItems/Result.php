@@ -58,7 +58,7 @@ class Result extends BaseResult
     /**
      * @return bool
      */
-    public function isHasMoreItems()
+    public function hasMoreItems()
     {
         return $this->hasMoreItems;
     }

@@ -5,6 +5,7 @@ namespace Ns\Afterbuy\Model\GetSoldItems;
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractPaymentInfo;
 use \DateTime;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class PaymentInfo
@@ -49,7 +50,7 @@ class PaymentInfo extends AbstractPaymentInfo
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("FullAmount")
-     * @var float
+     * @var FloatType
      */
     protected $fullAmount;
 
@@ -119,7 +120,7 @@ class PaymentInfo extends AbstractPaymentInfo
      */
     public function getFullAmount()
     {
-        return $this->fullAmount;
+        return $this->fullAmount->getValue();
     }
 
     /**

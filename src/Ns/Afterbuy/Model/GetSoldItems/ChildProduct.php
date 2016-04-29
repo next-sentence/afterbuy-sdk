@@ -4,6 +4,7 @@ namespace Ns\Afterbuy\Model\GetSoldItems;
 
 use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractModel;
+use Ns\Afterbuy\Model\FloatType;
 
 /**
  * Class ChildProduct
@@ -48,21 +49,21 @@ class ChildProduct extends AbstractModel
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ProductVAT")
-     * @var float
+     * @var FloatType
      */
     protected $productVat;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ProductWeight")
-     * @var float
+     * @var FloatType
      */
     protected $productWeight;
 
     /**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("ProductUnitPrice")
-     * @var float
+     * @var FloatType
      */
     protected $productUnitPrice;
 
@@ -111,7 +112,7 @@ class ChildProduct extends AbstractModel
      */
     public function getProductVat()
     {
-        return $this->productVat;
+        return $this->productVat->getValue();
     }
 
     /**
@@ -119,7 +120,7 @@ class ChildProduct extends AbstractModel
      */
     public function getProductWeight()
     {
-        return $this->productWeight;
+        return $this->productWeight->getValue();
     }
 
     /**
@@ -127,6 +128,6 @@ class ChildProduct extends AbstractModel
      */
     public function getProductUnitPrice()
     {
-        return $this->productUnitPrice;
+        return $this->productUnitPrice->getValue();
     }
 }

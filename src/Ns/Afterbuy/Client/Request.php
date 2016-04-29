@@ -180,7 +180,7 @@ class Request implements LoggerAwareInterface
      * @param array $filters
      * @param int $maxCatalogs
      * @param int $detailLevel
-     * @return GetShopProductsResponse|null
+     * @return GetShopCatalogsResponse|null
      */
     public function getShopCatalogs(array $filters = array(), $maxCatalogs = 200, $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA)
     {

@@ -33,6 +33,13 @@ class Result extends BaseResult
     protected $products;
 
     /**
+     * @Serializer\Type("Ns\Afterbuy\Model\GetShopProducts\PaginationResult")
+     * @Serializer\SerializedName("PaginationResult")
+     * @var PaginationResult[]
+     */
+    protected $paginationResult;
+
+    /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("ShippingServicesList")
      * @var string
@@ -69,5 +76,13 @@ class Result extends BaseResult
     public function getShippingServicesList()
     {
         return $this->shippingServicesList;
+    }
+
+    /**
+     * @return PaginationResult[]
+     */
+    public function getPaginationResult()
+    {
+        return $this->paginationResult;
     }
 }

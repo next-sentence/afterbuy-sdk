@@ -285,7 +285,7 @@ class Request implements LoggerAwareInterface
         }
 
         try {
-            $object = $this->serializer->deserialize($response->getBody(), $type, 'xml');
+            $object = $this->serializer->deserialize((string) $response->getBody(), $type, 'xml');
         } catch (\Exception $exception) {
             $this->log(LogLevel::ERROR, $exception->getMessage());
 

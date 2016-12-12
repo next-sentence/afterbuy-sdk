@@ -153,9 +153,9 @@ class Product extends AbstractModel
     protected $discontinued;
 
     /**
-     * @Serializer\Type("boolean")
+     * @Serializer\Type("integer")
      * @Serializer\SerializedName("MergeStock")
-     * @var bool
+     * @var int
      */
     protected $mergeStock;
 
@@ -237,9 +237,9 @@ class Product extends AbstractModel
     protected $position;
 
     /**
-     * @Serializer\Type("boolean")
+     * @Serializer\Type("integer")
      * @Serializer\SerializedName("TitleReplace")
-     * @var bool
+     * @var int
      */
     protected $titleReplace;
 
@@ -774,7 +774,7 @@ class Product extends AbstractModel
     }
 
     /**
-     * @return boolean
+     * @return int
      */
     public function isMergeStock()
     {
@@ -870,7 +870,7 @@ class Product extends AbstractModel
     }
 
     /**
-     * @return boolean
+     * @return int
      */
     public function isTitleReplace()
     {

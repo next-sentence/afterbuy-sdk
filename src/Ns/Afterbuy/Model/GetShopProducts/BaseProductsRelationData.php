@@ -38,8 +38,9 @@ class BaseProductsRelationData
     protected $position;
 
     /**
-     * @Serializer\Type("Ns\Afterbuy\Model\GetShopProducts\EbayVariationData")
+     * @Serializer\Type("array<Ns\Afterbuy\Model\GetShopProducts\EbayVariationData>")
      * @Serializer\SerializedName("eBayVariationData")
+     * @Serializer\XmlList(inline=true, entry="eBayVariationData")
      * @var EbayVariationData
      */
     protected $ebayVariationData;

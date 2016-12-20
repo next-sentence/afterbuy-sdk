@@ -160,16 +160,16 @@ class Product extends AbstractModel
     protected $mergeStock;
 
     /**
-     * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("UnitOfQuantity")
-     * @var FloatType
+     * @var string
      */
     protected $unitOfQuantity;
 
     /**
-     * @Serializer\Type("string")
+     * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("BasepriceFactor")
-     * @var string
+     * @var FloatType
      */
     protected $basepriceFactor;
 
@@ -782,19 +782,19 @@ class Product extends AbstractModel
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getUnitOfQuantity()
     {
-        return $this->unitOfQuantity->getValue();
+        return $this->unitOfQuantity;
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getBasepriceFactor()
     {
-        return $this->basepriceFactor;
+        return $this->basepriceFactor->getValue();
     }
 
     /**

@@ -25,7 +25,7 @@ class GetShopProductsRequest extends AbstractRequest
     protected $maxShopItems;
 
     /**
-     * @Serializer\Type("boolean")
+     * @Serializer\Type("integer")
      * @Serializer\Accessor(getter="isPaginationEnabled", setter="setPaginationEnabled")
      * @Serializer\SerializedName("PaginationEnabled")
      * @var bool
@@ -92,7 +92,7 @@ class GetShopProductsRequest extends AbstractRequest
     }
 
     /**
-     * @return boolean
+     * @return int
      */
     public function isPaginationEnabled()
     {

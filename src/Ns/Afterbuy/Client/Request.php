@@ -169,7 +169,7 @@ class Request implements LoggerAwareInterface
             ->setFilters($filters)
             ->setDetailLevel($detailLevel)
             ->setMaxShopItems($maxShopProducts)
-            ->setPaginationEnabled($enablePagination)
+            ->setPaginationEnabled((int) $enablePagination)
             ->setPageNumber($page)
             ;
 

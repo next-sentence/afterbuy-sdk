@@ -139,9 +139,9 @@ class Product extends AbstractModel
     protected $auctionQuantity;
 
     /**
-     * @Serializer\Type("boolean")
+     * @Serializer\Type("integer")
      * @Serializer\SerializedName("Stock")
-     * @var bool
+     * @var integer
      */
     protected $stock;
 

@@ -8,7 +8,7 @@ use Ns\Afterbuy\Model\AfterbuyGlobal;
 use Ns\Afterbuy\Model\AbstractFilter;
 
 /**
- * Class GetSoldItemsRequest
+ * Class GetListerHistoryRequest
  *
  * @Serializer\XmlRoot("Request")
  */

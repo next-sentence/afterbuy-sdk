@@ -35,6 +35,8 @@ use Ns\Afterbuy\Model\GetSoldItems\GetSoldItemsResponse;
 
 use Ns\Afterbuy\Model\GetListerHistory\GetListerHistoryRequest;
 use Ns\Afterbuy\Model\GetListerHistory\GetListerHistoryResponse;
+use Ns\Afterbuy\Model\GetAfterbuyTime\GetAfterbuyTimeRequest;
+use Ns\Afterbuy\Model\GetAfterbuyTime\GetAfterbuyTimeResponse;
 
 use Ns\Afterbuy\Model\UpdateSoldItems\UpdateSoldItemsRequest;
 use Ns\Afterbuy\Model\UpdateSoldItems\UpdateSoldItemsResponse;
@@ -232,6 +234,20 @@ class Request implements LoggerAwareInterface
             ->setOrderDirection(intval($orderDirection));
 
         return $this->serializeAndSubmitRequest($request, GetSoldItemsResponse::class);
+    }
+
+    /**
+     * @param AbstractFilter[] $filters
+     * @param bool             $orderDirection
+     * @param int              $maxSoldItems
+     * @param int              $detailLevel
+     *
+     * @return GetSoldItemsResponse|null
+     */
+    public function getAfterbuyTime()
+    {
+        $request = (new GetAfterbuyTimeRequest($this->afterbuyGlobal));
+        return $this->serializeAndSubmitRequest($request, GetAfterbuyTimeResponse::class);
     }
 
     /**

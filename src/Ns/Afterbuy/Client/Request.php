@@ -194,10 +194,7 @@ class Request implements LoggerAwareInterface
             ->setFilters($filters)
             ->setDetailLevel($detailLevel)
             ->setMaxHistoryItems($maxHistoryProducts)
-//            ->setPaginationEnabled((int) $enablePagination)
-//            ->setPageNumber($page)
             ;
-//pr( $request );
         return $this->serializeAndSubmitRequest($request, GetListerHistoryResponse::class);
     }
 
@@ -295,7 +292,6 @@ class Request implements LoggerAwareInterface
         try {
             $object = $this->serializer->deserialize($response->getBody(), $type, 'xml');
         } catch (\Exception $exception) {
-			pr( $exception );die();
             $this->log(LogLevel::ERROR, $exception->getMessage());
 
             return null;

@@ -32,6 +32,10 @@ use Ns\Afterbuy\Model\GetStockInfo\GetStockInfoRequest;
 use Ns\Afterbuy\Model\GetStockInfo\GetStockInfoResponse;
 use Ns\Afterbuy\Model\GetSoldItems\GetSoldItemsRequest;
 use Ns\Afterbuy\Model\GetSoldItems\GetSoldItemsResponse;
+
+use Ns\Afterbuy\Model\GetListerHistory\GetListerHistoryRequest;
+use Ns\Afterbuy\Model\GetListerHistory\GetListerHistoryResponse;
+
 use Ns\Afterbuy\Model\UpdateSoldItems\UpdateSoldItemsRequest;
 use Ns\Afterbuy\Model\UpdateSoldItems\UpdateSoldItemsResponse;
 use Ns\Afterbuy\Model\UpdateSoldItems\Order;
@@ -178,6 +182,27 @@ class Request implements LoggerAwareInterface
 
     /**
      * @param array $filters
+     * @param int $page
+     * @param int $maxShopProducts
+     * @param bool|true $enablePagination
+     * @param int $detailLevel
+     * @return GetShopProductsResponse|null
+     */
+    public function getListerHistory(array $filters = array(), $page = 1, $maxHistoryProducts = 250, $enablePagination = true, $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA)
+    {
+        $request = (new GetListerHistoryRequest($this->afterbuyGlobal))
+            ->setFilters($filters)
+            ->setDetailLevel($detailLevel)
+            ->setMaxHistoryItems($maxHistoryProducts)
+//            ->setPaginationEnabled((int) $enablePagination)
+//            ->setPageNumber($page)
+            ;
+//pr( $request );
+        return $this->serializeAndSubmitRequest($request, GetListerHistoryResponse::class);
+    }
+
+    /**
+     * @param array $filters
      * @param int $maxCatalogs
      * @param int $detailLevel
      * @return GetShopCatalogsResponse|null
@@ -267,10 +292,10 @@ class Request implements LoggerAwareInterface
 
             return null;
         }
-
         try {
             $object = $this->serializer->deserialize($response->getBody(), $type, 'xml');
         } catch (\Exception $exception) {
+			pr( $exception );die();
             $this->log(LogLevel::ERROR, $exception->getMessage());
 
             return null;

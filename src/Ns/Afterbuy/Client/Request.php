@@ -12,8 +12,12 @@ use JMS\Serializer\Handler\ArrayCollectionHandler;
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Handler\PhpCollectionHandler;
 use JMS\Serializer\Handler\PropelCollectionHandler;
+use JMS\Serializer\Naming\CamelCaseNamingStrategy;
+use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
+use JMS\Serializer\XmlDeserializationVisitor;
+use JMS\Serializer\XmlSerializationVisitor;
 use Ns\Afterbuy\Serializer\DateHandler;
 use Ns\Afterbuy\Serializer\FloatHandler;
 use Ns\Afterbuy\Model\AbstractRequest;
@@ -73,16 +77,28 @@ class Request implements LoggerAwareInterface
      * @param int    $partnerId
      * @param string $partnerPassword
      * @param string $errorLanguage
+     * @param string $doctypeWhitelist
      */
-    public function __construct($userId, $userPassword, $partnerId, $partnerPassword, $errorLanguage)
+    public function __construct($userId, $userPassword, $partnerId, $partnerPassword, $errorLanguage, $doctypeWhitelist)
     {
         AnnotationRegistry::registerLoader('class_exists');
 
         $this->afterbuyGlobal = new AfterbuyGlobal($userId, $userPassword, $partnerId, $partnerPassword, $errorLanguage);
         $this->client = new \GuzzleHttp\Client(array('base_uri' => $this->uri));
-        $this->serializer = SerializerBuilder::create()
-            ->configureHandlers(self::getHandlerConfiguration())
-            ->build();
+
+        $builder = SerializerBuilder::create()
+            ->configureHandlers(self::getHandlerConfiguration());
+
+        if ($doctypeWhitelist) {
+            $namingStrategy = new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy());
+            $xmlSerVisitor = new XmlSerializationVisitor($namingStrategy);
+            $xmlDesVisitor = new XmlDeserializationVisitor($namingStrategy);
+            $xmlDesVisitor->setDoctypeWhitelist($doctypeWhitelist);
+            $builder->setSerializationVisitor('xml', $xmlSerVisitor)
+                ->setDeserializationVisitor('xml', $xmlDesVisitor);
+        }
+
+        $this->serializer = $builder->build();
     }
 
     /**
@@ -306,7 +322,7 @@ class Request implements LoggerAwareInterface
             return null;
         }
         try {
-            $object = $this->serializer->deserialize($response->getBody(), $type, 'xml');
+            $object = $this->serializer->deserialize((string) $response->getBody(), $type, 'xml');
         } catch (\Exception $exception) {
             $this->log(LogLevel::ERROR, $exception->getMessage());
 

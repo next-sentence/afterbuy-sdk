@@ -24,7 +24,7 @@ class Factory
             $config['errorLang'],
             $config['doctypeWhitelist']
         );
-
-        return $request->setLogger(new Logger('afterbuy'));
+		return $request;
+//        return $request->setLogger(new Logger('afterbuy'));
     }
 }

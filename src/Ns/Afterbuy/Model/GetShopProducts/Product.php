@@ -286,9 +286,9 @@ class Product extends AbstractModel
      */
     protected $googleBaseShipping;
     /**
-     * @Serializer\Type("boolean")
+     * @Serializer\Type("integer")
      * @Serializer\SerializedName("Kelkoo")
-     * @var bool
+     * @var int
      */
     protected $kelkoo;
 

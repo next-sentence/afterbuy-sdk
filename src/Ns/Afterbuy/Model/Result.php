@@ -24,4 +24,16 @@ class Result extends AbstractModel
     {
         return $this->errors;
     }
+
+	/**
+	 *
+	 * @param string $name
+	 * @return mixed|null
+	 */
+	public function __get( $name ) {
+		if( property_exists( $this, $name ) ) {
+			return $this->$name;
+		}
+		return null;
+	}
 }

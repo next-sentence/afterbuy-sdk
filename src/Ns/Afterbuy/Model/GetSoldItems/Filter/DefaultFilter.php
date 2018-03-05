@@ -35,6 +35,11 @@ class DefaultFilter extends AbstractFilter
     const FILTER_NO_XML_DATE = 'NoXMLDate';
 
     /**
+     * ready to ship
+     */
+    const FILTER_READY_TO_SHIP = 'ReadyToShip';
+
+    /**
      * @param string $filterValue
      */
     public function __construct($filterValue)

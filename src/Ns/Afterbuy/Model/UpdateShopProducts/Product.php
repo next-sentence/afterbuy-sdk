@@ -110,9 +110,9 @@ class Product extends AbstractModel
     protected $stock;
 
     /**
-     * @Serializer\Type("boolean")
+     * @Serializer\Type("integer")
      * @Serializer\SerializedName("Discontinued")
-     * @var bool
+     * @var int
      */
     protected $discontinued;
 
@@ -782,15 +782,15 @@ class Product extends AbstractModel
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isDiscontinued()
+    public function getDiscontinued()
     {
         return $this->discontinued;
     }
 
     /**
-     * @param bool $discontinued
+     * @param int $discontinued
      */
     public function setDiscontinued($discontinued)
     {

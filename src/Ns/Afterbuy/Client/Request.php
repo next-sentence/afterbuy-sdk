@@ -5,6 +5,7 @@ namespace Ns\Afterbuy\Client;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
+use Ns\Afterbuy\Model\GetShopProducts\Product;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
@@ -319,6 +320,15 @@ class Request implements LoggerAwareInterface
             ->setOrders($orders);
 
         return $this->serializeAndSubmitRequest($request, UpdateSoldItemsResponse::class);
+    }
+
+    /**
+     * @param Product[] $products
+     * @param int       $detailLevel
+     */
+    public function updateShopProducts(array $products, $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA)
+    {
+        // todo: Implement method
     }
 
     /**

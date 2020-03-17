@@ -16,15 +16,13 @@ class Factory
      */
     public function createRequest(array $config)
     {
-        $request =  new Request(
+        return new Request(
             $config['userId'],
             $config['userPass'],
             $config['partnerId'],
             $config['partnerPass'],
             $config['errorLang'],
-            $config['doctypeWhitelist']
+            $config['doctypeWhitelist'] ?? []
         );
-		return $request;
-//        return $request->setLogger(new Logger('afterbuy'));
     }
 }

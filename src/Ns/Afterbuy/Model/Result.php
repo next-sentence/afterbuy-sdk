@@ -25,6 +25,22 @@ class Result extends AbstractModel
         return $this->errors;
     }
 
+    /**
+     * @Serializer\Type("array<Ns\Afterbuy\Model\Warning>")
+     * @Serializer\SerializedName("WarningList")
+     * @Serializer\XmlList(entry="Warning")
+     * @var Warning[]
+     */
+    protected $warnings;
+
+    /**
+     * @return Warning[]
+     */
+    public function getWarnings()
+    {
+        return $this->warnings;
+    }
+
 	/**
 	 *
 	 * @param string $name

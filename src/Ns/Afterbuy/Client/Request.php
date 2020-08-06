@@ -48,6 +48,9 @@ use Ns\Afterbuy\Model\UpdateSoldItems\UpdateSoldItemsRequest;
 use Ns\Afterbuy\Model\UpdateSoldItems\UpdateSoldItemsResponse;
 use Ns\Afterbuy\Model\UpdateSoldItems\Order;
 
+use Ns\Afterbuy\Model\UpdateShopProducts\Product;
+use Ns\Afterbuy\Model\UpdateShopProducts\UpdateShopProductsRequest;
+use Ns\Afterbuy\Model\UpdateShopProducts\UpdateShopProductsResponse;
 /**
  * Class Request
  */
@@ -319,6 +322,21 @@ class Request implements LoggerAwareInterface
             ->setOrders($orders);
 
         return $this->serializeAndSubmitRequest($request, UpdateSoldItemsResponse::class);
+    }
+
+    /**
+     * @param Product[] $products
+     * @param int     $detailLevel
+     *
+     * @return UpdateShopProductsResponse|null
+     */
+    public function updateShopProducts(array $products, $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA)
+    {
+        $request = (new UpdateShopProductsRequest($this->afterbuyGlobal))
+            ->setDetailLevel($detailLevel)
+            ->setProducts($products);
+
+        return $this->serializeAndSubmitRequest($request, UpdateShopProductsResponse::class);
     }
 
     /**

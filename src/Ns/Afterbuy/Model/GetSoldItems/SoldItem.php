@@ -35,12 +35,35 @@ class SoldItem extends AbstractModel
     protected $anr;
 
     /**
+     * @Serializer\Type("string")
+     * @Serializer\Accessor(setter="setIsAmazonInvoicedFromString")
+     * @Serializer\SerializedName("IsAmazonInvoiced")
+     * @var bool
+     */
+    protected $isAmazonInvoiced;
+    
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("PlatformSpecificOrderId")
+     * @var string
+     */
+    protected $platformSpecificOrderId;
+    
+    /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("eBayTransactionID")
      * @var int
      */
     protected $ebayTransactionId;
 
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\Accessor(setter="setEbayPlusTransactionFromString")
+     * @Serializer\SerializedName("eBayPlusTransaction")
+     * @var bool
+     */
+    protected $eBayPlusTransaction;
+    
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("AlternativeItemNumber1")
@@ -202,6 +225,22 @@ class SoldItem extends AbstractModel
     }
 
     /**
+     * @param string $value
+     */
+    public function setIsAmazonInvoicedFromString($value)
+    {
+        $this->isAmazonInvoiced = $this->setBooleanFromString($value);
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setEbayPlusTransactionFromString($value)
+    {
+        $this->eBayPlusTransaction = $this->setBooleanFromString($value);
+    }
+
+    /**
      * @return boolean
      */
     public function isItemDetailsDone()
@@ -226,6 +265,22 @@ class SoldItem extends AbstractModel
     }
 
     /**
+     * @return bool
+     */
+    public function isAmazonInvoiced(): bool
+    {
+        return $this->isAmazonInvoiced;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlatformSpecificOrderId(): string
+    {
+        return $this->platformSpecificOrderId;
+    }
+
+    /**
      * @return int
      */
     public function getEbayTransactionId()
@@ -233,6 +288,14 @@ class SoldItem extends AbstractModel
         return $this->ebayTransactionId;
     }
 
+    /**
+     * @return bool
+     */
+    public function isEbayPlusTransaction(): bool
+    {
+        return $this->eBayPlusTransaction;
+    }
+    
     /**
      * @return string
      */

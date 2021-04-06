@@ -35,6 +35,20 @@ class AbstractModel
         return $value ? 1 : 0;
     }
 
+    /**
+     * @param string $value
+     *
+     * @return bool|null
+     */
+    public function setBooleanFromString($value)
+    {
+        if (is_null($value)) {
+            return null;
+        }
+
+        return $value === 'True' ? true : false;
+    }
+
 	/**
 	 *
 	 * @param string $name

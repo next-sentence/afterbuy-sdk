@@ -40,3 +40,8 @@ Dependencies
 * `jms/serializer` - Allows you to easily serialize, and deserialize data of any complexity
 * `guzzlehttp/guzzle` - Guzzle is a PHP HTTP client library
 * `monolog/monolog` - Monolog lib
+
+
+> Please support - [https://paypal.me/nextsentence](https://paypal.me/nextsentence) :)
+
+

@@ -39,6 +39,14 @@ class GetSoldItemsRequest extends AbstractRequest
     protected $orderDirection;
 
     /**
+     * @Serializer\Type("integer")
+     * @Serializer\Accessor(getter="getReturnHiddenItemsAsInteger", setter="setReturnHiddenItemsFromInteger")
+     * @Serializer\SerializedName("ReturnHiddenItems")
+     * @var bool
+     */
+    protected $returnHiddenItems;
+
+    /**
      * @Serializer\Type("array<Ns\Afterbuy\Model\AbstractFilter>")
      * @Serializer\XmlList(entry="Filter")
      * @Serializer\SerializedName("DataFilter")
@@ -88,6 +96,42 @@ class GetSoldItemsRequest extends AbstractRequest
     public function setRequestAllItems($requestAllItems)
     {
         $this->requestAllItems = $requestAllItems;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getReturnHiddenItemsAsInteger()
+    {
+        return $this->getBooleanAsInteger($this->returnHiddenItems);
+    }
+
+    /**
+     * @param int $value
+     */
+    public function setReturnHiddenItemsFromInteger($value)
+    {
+        $this->returnHiddenItems = $this->setBooleanFromInteger($value);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getReturnHiddenItems()
+    {
+        return $this->returnHiddenItems;
+    }
+
+    /**
+     * @param $returnHiddenItems
+     *
+     * @return $this
+     */
+    public function setReturnHiddenItems($returnHiddenItems)
+    {
+        $this->returnHiddenItems = $returnHiddenItems;
 
         return $this;
     }

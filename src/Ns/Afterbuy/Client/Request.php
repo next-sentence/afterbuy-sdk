@@ -252,9 +252,12 @@ class Request implements LoggerAwareInterface
      *
      * @return GetSoldItemsResponse|null
      */
-    public function getSoldItems(array $filters = array(), $orderDirection = false,
-		$maxSoldItems = 250, $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA
-	)
+    public function getSoldItems(
+        array $filters = array(),
+        $orderDirection = false,
+        $maxSoldItems = 250,
+        $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA
+    )
     {
         $request = (new GetSoldItemsRequest($this->afterbuyGlobal))
             ->setFilters($filters)

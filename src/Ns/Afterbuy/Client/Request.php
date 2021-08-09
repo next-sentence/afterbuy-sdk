@@ -246,21 +246,30 @@ class Request implements LoggerAwareInterface
 
     /**
      * @param AbstractFilter[] $filters
-     * @param bool             $orderDirection
-     * @param int              $maxSoldItems
-     * @param int              $detailLevel
+     * @param bool $orderDirection
+     * @param int $maxSoldItems
+     * @param int $detailLevel
+     * @param bool $requestAllItems
+     * @param bool $returnHiddenItems
      *
      * @return GetSoldItemsResponse|null
      */
-    public function getSoldItems(array $filters = array(), $orderDirection = false,
-		$maxSoldItems = 250, $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA
-	)
+    public function getSoldItems(
+        array $filters = array(),
+        $orderDirection = false,
+        $maxSoldItems = 250,
+        $detailLevel = AfterbuyGlobal::DETAIL_LEVEL_PROCESS_DATA,
+        $requestAllItems = false,
+        $returnHiddenItems = false
+    )
     {
         $request = (new GetSoldItemsRequest($this->afterbuyGlobal))
             ->setFilters($filters)
             ->setDetailLevel($detailLevel)
             ->setMaxSoldItems($maxSoldItems)
-            ->setOrderDirection(intval($orderDirection));
+            ->setOrderDirection((int)$orderDirection)
+            ->setRequestAllItems($requestAllItems)
+            ->setReturnHiddenItems($returnHiddenItems);
 
         return $this->serializeAndSubmitRequest($request, GetSoldItemsResponse::class);
     }

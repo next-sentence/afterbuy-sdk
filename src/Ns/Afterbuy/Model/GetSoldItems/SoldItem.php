@@ -114,6 +114,13 @@ class SoldItem extends AbstractModel
     protected $itemPrice;
 
     /**
+     * @Serializer\Type("Ns\Afterbuy\Model\GetSoldItems\ItemOriginalCurrency")
+     * @Serializer\SerializedName("ItemOriginalCurrency")
+     * @var ItemOriginalCurrency
+     */
+    protected $itemOriginalCurrency;
+
+    /**
      * @Serializer\Type("DateTime<'d.m.Y H:i:s', 'UTC', '!d.m.Y'>")
      * @Serializer\SerializedName("ItemEndDate")
      * @var DateTime
@@ -438,6 +445,14 @@ class SoldItem extends AbstractModel
     public function getShopProductDetails()
     {
         return $this->shopProductDetails;
+    }
+
+    /**
+     * @return ItemOriginalCurrency
+     */
+    public function getItemOriginalCurrency()
+    {
+        return $this->itemOriginalCurrency;
     }
 
     /**

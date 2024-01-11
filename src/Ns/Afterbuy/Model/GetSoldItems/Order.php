@@ -6,7 +6,6 @@ use JMS\Serializer\Annotation as Serializer;
 use Ns\Afterbuy\Model\AbstractOrder;
 use \DateTime;
 use Ns\Afterbuy\Model\FloatType;
-use Ns\Afterbuy\Model\UpdateSoldItems\Tags;
 
 /**
  * Class Order
@@ -111,13 +110,6 @@ class Order extends AbstractOrder
      * @var VorgangsInfo
      */
     protected $vorgangsInfo;
-
-    /**
-     * @Serializer\Type("Ns\Afterbuy\Model\UpdateSoldItems\Tags")
-     * @Serializer\SerializedName("Tags")
-     * @var Tags
-     */
-    protected $tags;
 
     /**
      * @return string
@@ -229,14 +221,6 @@ class Order extends AbstractOrder
     public function getVorgangsInfo()
     {
         return $this->vorgangsInfo;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTags()
-    {
-        return $this->tags;
     }
 
 }
